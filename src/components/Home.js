@@ -9,16 +9,16 @@ const Home = () => {
       </h1>
       <p>Baar Baar Dekho - Hazaar Baar Dekho </p>
 
-      <div className="font-semibold uppercase  mt-5 flex  flex-col w-1/5 space-y-3 mx-auto">
+      <div className=" font-extrabold uppercase  mt-5 flex  flex-col w-1/5 space-y-3 mx-auto">
         <Link
           to="/music"
-          className="border-2 p-2 border-black rounded-md hover:bg-black hover:text-white"
+          className="border-2 p-2 border-white border-double  rounded-md bg-black text-white"
         >
           music
         </Link>
         <Link
           to="/video"
-          className="border-2 p-2 border-black rounded-md   hover:bg-black hover:text-white"
+          className="border-2 p-2 border-white rounded-md  bg-black border-double  text-white"
         >
           video
         </Link>
