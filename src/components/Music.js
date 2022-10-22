@@ -71,7 +71,7 @@ const Music = () => {
           )}
         </div>
         {currentImage ? (
-          <div className="h-[100px] md:h-[70px] bg-white  w-full  fixed  bottom-10  md:bottom-0  flex  space-x-16 justify-center items-center">
+          <div className="h-[100px] md:h-[70px] bg-white  w-full  fixed  bottom-0  md:bottom-0  flex  space-x-16 justify-center items-center">
             <div>
               <img
                 src={currentImage}
