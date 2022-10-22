@@ -8,11 +8,14 @@ const List = ({ value, fun, play }) => {
     console.log(touch);
   };
   return (
-    <div onClick={() => send(value)} className="flex items-center p-2">
+    <div
+      onClick={() => send(value)}
+      className="flex items-center p-2  hover:bg-gray-100 hover:scale-x-110 transition-transform"
+    >
       <div className="p-1 border-2 rounded-full border-cyan-300 ">
         <img
           src={value.artworkUrl100}
-          className=" rounded-full w-28 h-28 "
+          className=" rounded-full w-28 h-28  "
           alt="placeholder"
           onClick={() => send(value)}
         />

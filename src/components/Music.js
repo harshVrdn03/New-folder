@@ -60,7 +60,7 @@ const Music = () => {
             <SiAboutdotme size={30} />
           </Link>
         </div>
-        <div className="overflow-scroll h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  pt-14">
+        <div className="overflow-scroll h-full gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4   pt-14">
           {data.map(
             (
               el,

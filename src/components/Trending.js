@@ -50,7 +50,10 @@ const Trending = () => {
               {inputData}
             </span>
             {videoData.map((v, i) => (
-              <div className="flex space-x-3 mb-3 border-b-2 pb-2 " key={i}>
+              <div
+                className="flex space-x-3 mb-3 border-b-2 pb-2  hover:bg-gray-100"
+                key={i}
+              >
                 <video
                   src={v.previewUrl}
                   controls
