@@ -58,7 +58,7 @@ const Trending = () => {
                   src={v.previewUrl}
                   controls
                   poster={v.artworkUrl100}
-                  className="h-34 md:h-72  "
+                  className="h-72 md:h-72  "
                 />
                 <div className="p-5">
                   <span className="text-xl font-semibold">{v.trackName}</span>
