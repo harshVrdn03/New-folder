@@ -51,14 +51,14 @@ const Trending = () => {
             </span>
             {videoData.map((v, i) => (
               <div
-                className="flex space-x-3 mb-3 border-b-2 pb-2  hover:bg-gray-100"
+                className="md:flex flex-col space-x-3 mb-3 border-b-2 pb-2  hover:bg-gray-100"
                 key={i}
               >
                 <video
                   src={v.previewUrl}
                   controls
                   poster={v.artworkUrl100}
-                  className="h-34 md:h-72 "
+                  className="h-34 md:h-72  "
                 />
                 <div className="p-5">
                   <span className="text-xl font-semibold">{v.trackName}</span>
