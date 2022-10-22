@@ -10,7 +10,7 @@ const List = ({ value, fun, play }) => {
   return (
     <div
       onClick={() => send(value)}
-      className="flex items-center p-2  hover:bg-gray-100 hover:scale-x-110 transition-transform"
+      className="flex items-center p-2  hover:bg-gray-100  transition-transform"
     >
       <div className="p-1 border-2 rounded-full border-cyan-300 ">
         <img
