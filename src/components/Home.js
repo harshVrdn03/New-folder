@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="background h-screen text-center  w-100 flex flex-col justify-center">
       <h1 className="font-semibold text-white bg-black bg-opacity-40 text-5xl md:text-7xl lg:text-9xl">
-        MausamB
+        VIDSIC
       </h1>
       <p>Baar Baar Dekho - Hazaar Baar Dekho </p>
 
