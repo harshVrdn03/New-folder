@@ -15,8 +15,6 @@ const App = () => {
           <Route path="/music" element={<Music />} />
           <Route path="/video" element={<Video />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/playlist" element={<Playlist />} />
-          <Route path="/favourite" element={<Favourite />} /> */}
         </Routes>
       </Router>
     </div>
