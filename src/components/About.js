@@ -1,19 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import "./about.css";
 import { Link } from "react-router-dom";
+// import Playlist from "./Playlist";
+import { MdDelete } from "react-icons/md";
 const About = () => {
+  const [song, setsong] = useState(JSON.parse(localStorage.getItem("favlist")));
+  const [isplaying, setisplaying] = useState(false);
+  const [link, setLink] = useState("");
+  const data = JSON.parse(localStorage.getItem("favlist"));
+  const del = (e) => {
+    const updatedItems = data.filter((ele, id) => {
+      return ele.url !== e;
+    });
+    localStorage.setItem("favlist", JSON.stringify(updatedItems));
+    const a = document.getElementById("myaudio");
+    a.pause();
+    setsong(updatedItems);
+  };
+  const seturl = (e) => {
+    const a = document.getElementById("myaudio");
+    !isplaying ? a.pause() : a.play();
+    setisplaying(!isplaying);
+    setLink(e);
+  };
   return (
-    <div className="text-center flex flex-col h-screen justify-center space-y-5 bga">
-      <p className="text-3xl md:text-5xl lg:text-9xl font-semibold ">Welcome</p>
-      <p className="text-xl md:text-3xl lg:text-5xl">MausamB studio</p>
-      <p className="text-lg md:text-xl lg:text-xl">Manage by Harsh Vardhan</p>
-      <div className="flex flex-col w-[90px] mx-auto space-y-4">
-        <Link to="/video" className="p-2 border-4 border-black rounded-xl">
-          Video
-        </Link>
-        <Link to="/music" className="p-2 border-4 border-black rounded-xl">
-          Music
-        </Link>
+    <div className=" p-4 flex flex-col  h-screen space-y-2 mb-28">
+      <span className="text-center">Favourite</span>
+      {data.map((value, id) => (
+        <div
+          key={id}
+          className="flex items-center space-x-8 p-2 hover:bg-gray-200 justify-between mx-4"
+          onClick={() => seturl(value.url)}
+        >
+          <div className="flex space-x-4 items-center">
+            <img src={value.artwrk} />
+            <span>{value.trck}</span>
+          </div>
+          <div className="bg-red-800 rounded-full text-white hover:scale-125 absolute right-10 p-2">
+            <MdDelete
+              size={15}
+              onClick={() => {
+                del(value.url);
+              }}
+            />
+          </div>
+        </div>
+      ))}
+      <div className="h-[100px] md:h-[70px] bg-white  w-full  fixed  bottom-0  md:bottom-0  flex  space-x-16 justify-center items-center">
+        <audio id="myaudio" src={link} autoPlay controls />
       </div>
     </div>
   );

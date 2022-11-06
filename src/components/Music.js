@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { GiOrange } from "react-icons/gi";
 import { SiAboutdotme } from "react-icons/si";
+import { BsFillHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import List from "./List";
 const Music = () => {
+  const getlocalitems = () => {
+    const data = localStorage.getItem("favlist");
+    if (data) {
+      return JSON.parse(data);
+    } else {
+      return [];
+    }
+  };
   const [data, setdata] = useState([]);
   const [currentName, setcurrentName] = useState("");
   const [currenturl, setcurrenturl] = useState("");
   const [currentImage, setcurrentImage] = useState("");
   const [input, setinput] = useState("bollywood");
   const [isplaying, setisplaying] = useState(false);
+  const [favouriteList, setfavouritelist] = useState(getlocalitems());
 
   useEffect(() => {
     const FETCH_URL = `https://itunes.apple.com/search?term=${input}&media=music&limit=70&country=in`;
@@ -35,6 +45,14 @@ const Music = () => {
     setcurrentImage(img);
     feed();
   };
+  const favlst = (url, trck, artwrk) => {
+    setfavouritelist([...favouriteList, { url, trck, artwrk }]);
+    // console.log(favouriteList);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("favlist", JSON.stringify(favouriteList));
+  }, [favouriteList]);
 
   const srch = (e) => {
     if (e.target.value) {
@@ -47,7 +65,7 @@ const Music = () => {
   return (
     <>
       <div className="relative h-screen">
-        <div className=" bg-gray-100 absolute top-0 w-full flex justify-center p-4 space-x-4 items-center">
+        <div className=" bg-gray-100 absolute top-0 w-full flex justify-center p-4  z-10 space-x-4 items-center">
           <GiOrange className="absolute z-20 left-5" size={30} />
           <span className="">Search</span>
           <input
@@ -57,7 +75,7 @@ const Music = () => {
             onChange={srch}
           />
           <Link to="/about" className="absolute right-4">
-            <SiAboutdotme size={30} />
+            <BsFillHeartFill size={30} />
           </Link>
         </div>
         <div className="overflow-scroll h-full gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4   pt-14">
@@ -66,7 +84,13 @@ const Music = () => {
               el,
               id // console.log(el.artistId);
             ) => (
-              <List value={el} key={id} fun={dataFetch} play={isplaying} />
+              <List
+                value={el}
+                key={id}
+                fun={dataFetch}
+                play={isplaying}
+                favlist={favlst}
+              />
             )
           )}
         </div>
