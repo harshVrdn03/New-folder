@@ -24,19 +24,19 @@ const About = () => {
     setLink(e);
   };
   return (
-    <div className=" p-4 flex flex-col  h-screen space-y-2 mb-28">
+    <div className=" pl-4 flex flex-col  h-screen space-y-2 mb-28">
       <span className="text-center">Favourite</span>
       {data.map((value, id) => (
         <div
           key={id}
-          className="flex items-center space-x-8 p-2 hover:bg-gray-200 justify-between mx-4"
+          className="flex items-center space-x-8  hover:bg-gray-200 justify-between "
           onClick={() => seturl(value.url)}
         >
           <div className="flex space-x-4 items-center">
             <img src={value.artwrk} />
             <span>{value.trck}</span>
           </div>
-          <div className="bg-red-800 rounded-full text-white hover:scale-125 absolute right-10 p-2">
+          <div className="bg-red-800 rounded-full text-white hover:scale-125 absolute right-5 p-2">
             <MdDelete
               size={15}
               onClick={() => {
@@ -46,6 +46,7 @@ const About = () => {
           </div>
         </div>
       ))}
+
       <div className="h-[100px] md:h-[70px] bg-white  w-full  fixed  bottom-0  md:bottom-0  flex  space-x-16 justify-center items-center">
         <audio id="myaudio" src={link} autoPlay controls />
       </div>

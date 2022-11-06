@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
+// import { is } from "cheerio/lib/api/traversing";
 const List = ({ value, fun, play, favlist }) => {
   const [touch, settouch] = useState(false);
   // const [items, setitems] = useState([]);
