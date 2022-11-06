@@ -24,7 +24,7 @@ const List = ({ value, fun, play, favlist }) => {
         />
       </div>
       {value.trackName}
-      <div className="absolute right-2 bottom-0 flex space-x-2">
+      <div className="absolute right-2 bottom-1/2 flex space-x-2">
         {/* <BsPlusLg className=" text-gray-800 " /> */}
         <AiFillHeart
           className=" text-gray-800  cursor-pointer"
