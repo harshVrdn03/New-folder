@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { GiOrange } from "react-icons/gi";
-import { SiAboutdotme } from "react-icons/si";
 import { AiFillForward } from "react-icons/ai";
 import { AiFillBackward } from "react-icons/ai";
 import { BsFillHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import List from "./List";
-import Playlistpopup from "./Playlistpopup";
 const Music = () => {
   const getlocalitems = () => {
     const data = localStorage.getItem("favlist");
@@ -26,7 +24,7 @@ const Music = () => {
   const [favouriteList, setfavouritelist] = useState(getlocalitems());
   const [playlistpop, setplaylistpop] = useState(false);
   const [index, setindex] = useState();
-
+  const fetchSongData = () => {};
   useEffect(() => {
     const FETCH_URL = `https://itunes.apple.com/search?term=${input}&media=music&limit=70&country=in`;
     fetch(FETCH_URL, {
@@ -36,7 +34,7 @@ const Music = () => {
       .then((json) => {
         setdata(json.results);
       });
-  });
+  }, [input]);
 
   const playlistpophandler = () => {
     setplaylistpop(!playlistpop);
@@ -44,7 +42,7 @@ const Music = () => {
   const feed = () => {
     const a = document.getElementById("myaudio");
     console.log(isplaying);
-    !isplaying ? a.pause() : a.play();
+    isplaying ? a.pause() : a.play();
     setisplaying(!isplaying);
   };
   const dataFetch = (name, url, img, ind) => {
@@ -114,13 +112,13 @@ const Music = () => {
           <div className="h-[70px] bg-white fixed w-full    bottom-0  flex  md:space-x-16 justify-center items-center">
             <div className="md:flex hidden  items-center  uppercase font-mono  text-xl md:text-xl">
               <div>
-                <img
+                {/* <img
                   src={data[index].artworkUrl100}
                   className={`hidden md:flex rounded-full w-10 h-10 ${
                     !isplaying ? "animate-spin" : ""
                   }  `}
                   alt="placeholder"
-                />
+                /> */}
               </div>
               <div className="">{data[index].trackName}</div>
             </div>
