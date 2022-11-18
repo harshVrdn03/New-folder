@@ -137,7 +137,9 @@ const Music = () => {
                 <AiFillBackward
                   className="cursor-pointer"
                   size={25}
-                  onClick={() => setindex(index - 1)}
+                  onClick={() => {
+                    if (index > 0) setindex(index - 1);
+                  }}
                 />
                 <AiFillForward
                   className="cursor-pointer"
