@@ -111,7 +111,7 @@ const Music = () => {
           )}
         </div>
         {currentImage ? (
-          <div className="h-[70px] bg-white  w-full   absolute bottom-0  flex  md:space-x-16 justify-center items-center">
+          <div className="h-[70px] bg-white fixed w-full    bottom-0  flex  md:space-x-16 justify-center items-center">
             <div className="md:flex hidden  items-center  uppercase font-mono  text-xl md:text-xl">
               <div>
                 <img
