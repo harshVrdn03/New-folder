@@ -24,7 +24,7 @@ const Music = () => {
   const [favouriteList, setfavouritelist] = useState(getlocalitems());
   const [playlistpop, setplaylistpop] = useState(false);
   const [index, setindex] = useState();
-  const fetchSongData = () => {};
+  const [show, setshow] = useState();
   useEffect(() => {
     const FETCH_URL = `https://itunes.apple.com/search?term=${input}&media=music&limit=70&country=in`;
     fetch(FETCH_URL, {
@@ -42,7 +42,7 @@ const Music = () => {
   const feed = () => {
     const a = document.getElementById("myaudio");
     console.log(isplaying);
-    isplaying ? a.pause() : a.play();
+    !isplaying ? a.pause() : a.play();
     setisplaying(!isplaying);
   };
   const dataFetch = (name, url, img, ind) => {
@@ -50,6 +50,7 @@ const Music = () => {
     setcurrenturl(url);
     setcurrentImage(img);
     setindex(ind);
+    setshow(true);
     feed();
   };
   const favlst = (url, trck, artwrk) => {
@@ -63,6 +64,7 @@ const Music = () => {
 
   const srch = (e) => {
     if (e.target.value) {
+      setshow(false);
       setinput(e.target.value);
     } else {
       setinput("bollywood");
@@ -108,7 +110,7 @@ const Music = () => {
             )
           )}
         </div>
-        {currentImage ? (
+        {show ? (
           <div className="h-[70px] bg-white fixed w-full    bottom-0  flex  md:space-x-16 justify-center items-center">
             <div className="md:flex hidden  items-center  uppercase font-mono  text-xl md:text-xl">
               <div>

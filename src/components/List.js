@@ -6,7 +6,7 @@ const List = ({ value, fun, play, favlist, playlistpophandler, index }) => {
   // const [touch, settouch] = useState(false);
   const [istouch, setistouch] = useState(true);
   const send = (el) => {
-    fun(el.trackName, el.previewUrl, el.artworkUrl100, index);
+    fun(el.trackName, el.previewUrl, el.artworkUrl100, index, true);
   };
   return (
     <div
