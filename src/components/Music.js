@@ -67,6 +67,7 @@ const Music = () => {
       setshow(false);
       setinput(e.target.value);
     } else {
+      setshow(false);
       setinput("bollywood");
     }
     console.log(e.target.value);
