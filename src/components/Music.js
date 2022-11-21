@@ -4,6 +4,7 @@ import { AiFillForward } from "react-icons/ai";
 import { AiFillBackward } from "react-icons/ai";
 import { BsFillHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import "./Music.css";
 
 import List from "./List";
 const Music = () => {
@@ -16,9 +17,9 @@ const Music = () => {
     }
   };
   const [data, setdata] = useState([]);
-  const [currentName, setcurrentName] = useState("");
-  const [currenturl, setcurrenturl] = useState("");
-  const [currentImage, setcurrentImage] = useState("");
+  // const [currentName, setcurrentName] = useState("");
+  // const [currenturl, setcurrenturl] = useState("");
+  // const [currentImage, setcurrentImage] = useState("");
   const [input, setinput] = useState("bollywood");
   const [isplaying, setisplaying] = useState(false);
   const [favouriteList, setfavouritelist] = useState(getlocalitems());
@@ -26,7 +27,7 @@ const Music = () => {
   const [index, setindex] = useState();
   const [show, setshow] = useState();
   useEffect(() => {
-    const FETCH_URL = `https://itunes.apple.com/search?term=${input}&media=music&limit=70&country=in`;
+    const FETCH_URL = `https://itunes.apple.com/search?term=${input}&media=music&limit=40&country=in`;
     fetch(FETCH_URL, {
       method: "GET",
     })
@@ -46,16 +47,15 @@ const Music = () => {
     setisplaying(!isplaying);
   };
   const dataFetch = (name, url, img, ind) => {
-    setcurrentName(name);
-    setcurrenturl(url);
-    setcurrentImage(img);
+    // setcurrentName(name);
+    // setcurrenturl(url);
+    // setcurrentImage(img);
     setindex(ind);
     setshow(true);
     feed();
   };
   const favlst = (url, trck, artwrk) => {
     setfavouritelist([...favouriteList, { url, trck, artwrk }]);
-    // console.log(favouriteList);
   };
 
   useEffect(() => {
@@ -74,13 +74,13 @@ const Music = () => {
   };
   return (
     <>
-      <div className="relative h-screen">
-        <div className=" bg-gray-100 absolute top-0 w-full flex justify-center p-4  z-10 space-x-4 items-center">
+      <div className="relative backgroundImage h-screen">
+        <div className="  absolute top-0 w-full flex justify-center p-4 z-10 space-x-4 items-center">
           <GiOrange className="absolute z-20 left-5" size={30} />
           <span className="">Search</span>
           <input
             type="text"
-            className=" outline-none bg-transparent border-b-2 border-green-300"
+            className=" outline-none bg-transparent border-b-2 border-black text-black placeholder:text-black"
             placeholder="Search..."
             onChange={srch}
           />
@@ -112,8 +112,8 @@ const Music = () => {
           )}
         </div>
         {show ? (
-          <div className="h-[70px] bg-white fixed w-full    bottom-0  flex  md:space-x-16 justify-center items-center">
-            <div className="md:flex hidden  items-center  uppercase font-mono  text-xl md:text-xl">
+          <div className="h-[70px] bg-black fixed w-full    bottom-0  flex  md:space-x-16 justify-center items-center">
+            <div className="md:flex hidden  items-center  uppercase font-mono  text-xl md:text-xl p-12">
               <div>
                 {/* <img
                   src={data[index].artworkUrl100}
@@ -123,10 +123,10 @@ const Music = () => {
                   alt="placeholder"
                 /> */}
               </div>
-              <div className="">{data[index].trackName}</div>
+              <div className="text-white">{data[index].trackName}</div>
             </div>
-            <div className="flex-col  md:flex-row items-center">
-              <div className="flex md:hidden justify-between  w-[70%] mx-auto md:space-x-4">
+            <div className="flex  md:flex-row items-center text-white md:w-[65%] p-12">
+              <div className="flex md:hidden  space-x-4   w-[70%] mx-auto md:space-x-2 ">
                 <AiFillBackward size={25} onClick={() => setindex(index - 1)} />
                 <AiFillForward size={25} onClick={() => setindex(index + 1)} />
               </div>
@@ -136,16 +136,16 @@ const Music = () => {
                 autoPlay
                 controls
               />
-              <div className="md:flex hidden justify-between  w-[70%] mx-auto md:space-x-4">
+              <div className="md:flex hidden   w-[70%] mx-auto md:space-x-2">
                 <AiFillBackward
-                  className="cursor-pointer"
+                  className="cursor-pointer  text-white hover:bg-slate-200 hover:text-black border-50%"
                   size={25}
                   onClick={() => {
                     if (index > 0) setindex(index - 1);
                   }}
                 />
                 <AiFillForward
-                  className="cursor-pointer"
+                  className="cursor-pointer text-white hover:bg-slate-200 hover:text-black border-50%"
                   size={25}
                   onClick={() => setindex(index + 1)}
                 />

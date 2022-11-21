@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsHeart } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
-// import { IoMdAdd } from "react-icons/io";
+import "./List.css";
 const List = ({ value, fun, play, favlist, playlistpophandler, index }) => {
   // const [touch, settouch] = useState(false);
   const [istouch, setistouch] = useState(true);
@@ -11,9 +11,9 @@ const List = ({ value, fun, play, favlist, playlistpophandler, index }) => {
   return (
     <div
       onClick={() => send(value)}
-      className="flex items-center p-2  hover:bg-gray-100  transition-transform  relative"
+      className="flex items-center p-2  cardImage hover:bg-purple-500 rounded-xl hover:scale-105  space-x-4 transition-transform  relative "
     >
-      <div className="p-1 border-2 rounded-full relative border-cyan-300 ">
+      <div className="p-1 border rounded-full relative border-purple-900 ">
         <img
           src={value.artworkUrl100}
           className=" rounded-full w-28 h-28  "
@@ -26,7 +26,7 @@ const List = ({ value, fun, play, favlist, playlistpophandler, index }) => {
           onClick={() => playlistpophandler(value)}
         /> */}
       </div>
-      {value.trackName}
+      <div className="text-white font-semibold">{value.trackName}</div>
       <div className="absolute right-2 bottom-1/2  space-x-2 flex">
         {istouch ? (
           <BsHeart
@@ -48,9 +48,9 @@ const List = ({ value, fun, play, favlist, playlistpophandler, index }) => {
           />
         )}
       </div>
-      <audio onClick={() => send(value)}>
+      {/* <audio className="bg-black" onClick={() => send(value)}>
         <source src={value.previewUrl} type="audio/mpeg"></source>
-      </audio>
+      </audio> */}
     </div>
   );
 };
