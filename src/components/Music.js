@@ -77,10 +77,10 @@ const Music = () => {
       <div className="relative backgroundImage h-screen">
         <div className="  absolute top-0 w-full flex justify-center p-4 z-10 space-x-4 items-center">
           <GiOrange className="absolute z-20 left-5" size={30} />
-          <span className="">Search</span>
+          <span className="text-white">Search</span>
           <input
             type="text"
-            className=" outline-none bg-transparent border-b-2 border-black text-black placeholder:text-black"
+            className=" outline-none bg-transparent border-b-2 border-black text-white placeholder:text-white"
             placeholder="Search..."
             onChange={srch}
           />
