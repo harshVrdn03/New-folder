@@ -125,18 +125,19 @@ const Music = () => {
               </div>
               <div className="text-white">{data[index].trackName}</div>
             </div>
-            <div className="flex  md:flex-row items-center text-white md:w-[65%] p-12">
-              <div className="flex md:hidden  space-x-4   w-[70%] mx-auto md:space-x-2 ">
+            <div className="flex  md:flex-row items-center justify-center text-white w-full  p-12">
+              {/* <div className="flex md:hidden  space-x-4   w-[70%] mx-auto md:space-x-2 ">
                 <AiFillBackward size={25} onClick={() => setindex(index - 1)} />
                 <AiFillForward size={25} onClick={() => setindex(index + 1)} />
-              </div>
+              </div> */}
               <audio
                 id="myaudio"
+                className=""
                 src={data[index].previewUrl}
                 autoPlay
                 controls
               />
-              <div className="md:flex hidden   w-[70%] mx-auto md:space-x-2">
+              <div className="flex justify-center     mx-auto space-x-2">
                 <AiFillBackward
                   className="cursor-pointer  text-white hover:bg-slate-200 hover:text-black border-50%"
                   size={25}
