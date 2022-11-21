@@ -76,7 +76,7 @@ const Music = () => {
     <>
       <div className="relative backgroundImage h-screen">
         <div className="  absolute top-0 w-full flex justify-center p-4 z-10 space-x-4 items-center">
-          <GiOrange className="absolute z-20 left-5" size={30} />
+          <GiOrange className="absolute z-20 left-5 text-white" size={30} />
           <span className="text-white">Search</span>
           <input
             type="text"
@@ -84,7 +84,7 @@ const Music = () => {
             placeholder="Search..."
             onChange={srch}
           />
-          <Link to="/about" className="absolute right-4">
+          <Link to="/about" className="absolute right-4 text-white">
             <BsFillHeartFill size={30} />
           </Link>
         </div>
