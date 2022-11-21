@@ -30,7 +30,7 @@ const List = ({ value, fun, play, favlist, playlistpophandler, index }) => {
       <div className="absolute right-2 bottom-1/2  space-x-2 flex">
         {istouch ? (
           <BsHeart
-            className=" text-gray-800  cursor-pointer"
+            className="   cursor-pointer text-white"
             size={18}
             onClick={() => {
               favlist(value.previewUrl, value.trackName, value.artworkUrl100);
@@ -39,7 +39,7 @@ const List = ({ value, fun, play, favlist, playlistpophandler, index }) => {
           />
         ) : (
           <AiFillHeart
-            className=" text-gray-800  cursor-pointer"
+            className="   cursor-pointer text-white "
             size={18}
             onClick={() => {
               favlist(value.previewUrl, value.trackName, value.artworkUrl100);
